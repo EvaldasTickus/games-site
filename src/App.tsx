@@ -1,22 +1,21 @@
+import GameGrid from "./components/GameGrid";
 import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      {/* Nav */}
+    <div className="min-h-screen bg white text-black dark:bg-black dark:text-white">
       <div>
         <NavBar />
       </div>
 
-      {/* Container for Aside and Main */}
       <div className="flex flex-col lg:flex-row">
-        {/* Aside - Hidden on screens smaller than 1024px */}
-        <div className="hidden lg:block lg:w-1/4 bg-blue-400 p-4 text-white">
+        <div className="hidden lg:block lg:w-1/4">
           Aside
         </div>
 
-        {/* Main - Full width on small screens, 3/4 width on larger screens */}
-        <div className="w-full lg:w-3/4 bg-red-600 p-4 text-white">Main</div>
+        <div className="w-full lg:w-3/4 ">
+          <GameGrid />
+        </div>
       </div>
     </div>
   );

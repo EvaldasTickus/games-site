@@ -1,10 +1,12 @@
 import logo from "../assets/logo.webp"
+import DarkModeToggle from "./DarkModeToggle"
 
 const NavBar = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex justify-between items-center px-10">
       <img className="w-[60px]" src={logo} />
       <p>NavBar</p>
+      <DarkModeToggle />
     </div>
   )
 }
