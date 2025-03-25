@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="min-h-screen bg white text-black dark:bg-black dark:text-white">
+    <div className="min-h-screen bg white text-black dark:bg-gray-950 dark:text-white">
       <div>
         <NavBar />
       </div>

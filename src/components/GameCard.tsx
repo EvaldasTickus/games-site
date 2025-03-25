@@ -1,22 +1,26 @@
-import { Game } from "../hooks/useGames"
-import PlatformIconList from "./PlatformIconList"
+import { Game } from "../hooks/useGames";
+import CriticScore from "./CriticScore";
+import PlatformIconList from "./PlatformIconList";
 
 interface Props {
-  game: Game
+  game: Game;
 }
 
-const GameCard = ({game}: Props) => {
+const GameCard = ({ game }: Props) => {
   return (
-    <div className="rounded-md overflow-hidden" >
+    <div className="rounded-xl overflow-hidden">
       <img src={game.background_image} />
       <div className="bg-gray-900 p-5">
-        <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} />
-        <div className="text-2xl font-semibold">
-          {game.name}
+        <div className="flex justify-between">
+          <PlatformIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <CriticScore score={game.metacritic} />
         </div>
+        <div className="text-2xl font-semibold">{game.name}</div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GameCard
+export default GameCard;
