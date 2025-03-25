@@ -1,8 +1,12 @@
+import NavBar from "./components/NavBar";
+
 function App() {
   return (
     <div className="min-h-screen">
       {/* Nav */}
-      <div className="bg-amber-600 p-4 text-white text-center">Nav</div>
+      <div>
+        <NavBar />
+      </div>
 
       {/* Container for Aside and Main */}
       <div className="flex flex-col lg:flex-row">
