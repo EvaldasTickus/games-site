@@ -1,4 +1,5 @@
 import { Game } from "../hooks/useGames";
+import getCroppedImageUrl from "../services/image-urls";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 
@@ -9,7 +10,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <div className="rounded-xl overflow-hidden">
-      <img src={game.background_image} />
+      <img src={getCroppedImageUrl(game.background_image)} />
       <div className="bg-gray-900 p-5">
         <div className="flex justify-between">
           <PlatformIconList
