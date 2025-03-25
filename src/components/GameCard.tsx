@@ -9,7 +9,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <div className="rounded-xl overflow-hidden">
+    <div>
       <img src={getCroppedImageUrl(game.background_image)} />
       <div className="bg-gray-900 p-5">
         <div className="flex justify-between">
