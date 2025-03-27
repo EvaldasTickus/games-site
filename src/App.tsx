@@ -10,11 +10,11 @@ function App() {
       </div>
 
       <div className="flex flex-col lg:flex-row">
-        <div className="hidden lg:block lg:w-1/4">
+        <div className="hidden px-5 lg:block lg:w-[250px]">
           <GenreList />
         </div>
 
-        <div className="w-full lg:w-3/4 ">
+        <div className="w-full">
           <GameGrid />
         </div>
       </div>
