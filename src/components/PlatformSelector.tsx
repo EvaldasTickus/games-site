@@ -12,7 +12,7 @@ const PlatformSelector = ({ onSelectPlatform }: Props) => {
 
   return (
     <select
-      className="px-4 py-2 dark:bg-gray-950 border rounded-lg"
+      className="px-4 py-2 dark:bg-gray-950 border rounded-lg w-50"
       onChange={(e) => {
         const selectedId = Number(e.target.value);
         const selectedPlatform = data.find((platform) => platform.id === selectedId);

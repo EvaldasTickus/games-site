@@ -15,7 +15,7 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
 
   return (
     <select
-      className="px-4 py-2 dark:bg-gray-950 border rounded-lg"
+      className="px-4 py-2 dark:bg-gray-950 border rounded-lg w-55"
       onChange={(e) => onSelectSortOrder(e.target.value)} // ✅ Use onChange here
     >
       <option value="" hidden>

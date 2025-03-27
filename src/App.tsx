@@ -30,7 +30,7 @@ function App() {
         </div>
 
         <div className="w-full">
-          <div className="flex gap-5 ml-3 mb-5">
+          <div className="flex flex-col gap-5 ml-3 mb-5 mt-5">
             <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})}/>
             <SortSelector onSelectSortOrder={(sortOrder) => setGameQuery({...GameQuery, sortOrder})} />
           </div>
