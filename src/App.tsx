@@ -6,6 +6,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -32,6 +33,7 @@ function App() {
         </div>
 
         <div className="w-full">
+          <GameHeading gameQuery={GameQuery} />
           <div className="flex flex-col gap-5 ml-3 mb-5 mt-5">
             <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})}/>
             <SortSelector onSelectSortOrder={(sortOrder) => setGameQuery({...GameQuery, sortOrder})} />
