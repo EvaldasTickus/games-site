@@ -10,7 +10,7 @@ function App() {
       </div>
 
       <div className="flex flex-col lg:flex-row">
-        <div className="hidden px-5 lg:block lg:w-[250px]">
+        <div className="hidden px-5 mt-4 lg:block lg:w-[250px]">
           <GenreList />
         </div>
 
