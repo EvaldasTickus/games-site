@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -28,7 +29,10 @@ function App() {
         </div>
 
         <div className="w-full">
-          <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})}/>
+          <div className="flex gap-5 ml-3 mb-5">
+            <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})}/>
+            <SortSelector />
+          </div>
           <GameGrid gameQuery={GameQuery}/>
         </div>
       </div>
