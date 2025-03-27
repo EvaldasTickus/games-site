@@ -11,6 +11,8 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
+  
 }
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
   return (
     <div className="min-h-screen bg white text-black dark:bg-gray-950 dark:text-white">
       <div>
-        <NavBar />
+        <NavBar onSearch={(searchText) => setGameQuery({...GameQuery, searchText})}/>
       </div>
 
       <div className="flex flex-col lg:flex-row">
