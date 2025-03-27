@@ -16,28 +16,31 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     );
   }
   return (
-    <ul>
-      {data.map((genre) => (
-        <div className="flex py-2" key={genre.id}>
-          <img
-            className="w-12 h-12 rounded-lg"
-            src={getCroppedImageUrl(genre.image_background)}
-          />
-          <button
-            onClick={() => onSelectGenre(genre)}
-            className={`px-5 text-xl cursor-pointer ${
-              genre.id === selectedGenre?.id ? "font-bold" : "font-normal"
-            }`}
-          >
-            <a
-              className="hover:underline"
+    <>
+      <h1 className="text-2xl mb-3">Genres</h1>
+      <ul>
+        {data.map((genre) => (
+          <div className="flex py-2" key={genre.id}>
+            <img
+              className="w-13 h-13 rounded-lg object-cover"
+              src={getCroppedImageUrl(genre.image_background)}
+            />
+            <button
+              onClick={() => onSelectGenre(genre)}
+              className={`px-5 text-xl cursor-pointer text-left ${
+                genre.id === selectedGenre?.id ? "font-bold" : "font-normal"
+              }`}
             >
-              {genre.name}
-            </a>
-          </button>
-        </div>
-      ))}
-    </ul>
+              <a
+                className="hover:underline"
+              >
+                {genre.name}
+              </a>
+            </button>
+          </div>
+        ))}
+      </ul>
+    </>
   );
 };
 
