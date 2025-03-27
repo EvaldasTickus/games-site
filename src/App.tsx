@@ -3,9 +3,13 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import { Genre } from "./hooks/useGenres";
+import PlatformSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/useGames";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null)
+
   return (
     <div className="min-h-screen bg white text-black dark:bg-gray-950 dark:text-white">
       <div>
@@ -18,7 +22,8 @@ function App() {
         </div>
 
         <div className="w-full">
-          <GameGrid selectedGenre={selectedGenre}/>
+          <PlatformSelector onSelectPlatform={(platform) => setSelectedPlatform(platform)}/>
+          <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre}/>
         </div>
       </div>
     </div>
