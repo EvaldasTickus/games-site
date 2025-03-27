@@ -22,7 +22,7 @@ function App() {
   const [GameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
   return (
-    <div className="min-h-screen bg white text-black dark:bg-gray-950 dark:text-white">
+    <div className="min-h-screen bg white text-black dark:bg-zinc-900 dark:text-white">
       <div>
         <NavBar onSearch={(searchText) => setGameQuery({...GameQuery, searchText})}/>
       </div>

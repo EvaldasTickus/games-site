@@ -9,9 +9,9 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <div>
+    <div className="max-w-[600px]">
       <img src={getCroppedImageUrl(game.background_image)} />
-      <div className="dark:bg-gray-900 bg-gray-300 p-5">
+      <div className="dark:bg-zinc-800 bg-gray-300 p-5">
         <div className="flex justify-between">
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
