@@ -1,4 +1,5 @@
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
 
       <div className="flex flex-col lg:flex-row">
         <div className="hidden lg:block lg:w-1/4">
-          Aside
+          <GenreList />
         </div>
 
         <div className="w-full lg:w-3/4 ">
