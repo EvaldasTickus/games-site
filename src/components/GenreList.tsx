@@ -3,15 +3,18 @@ import getCroppedImageUrl from "../services/image-urls";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({onSelectGenre}: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
   if (isLoading) {
-    return <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-  } 
+    return (
+      <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+    );
+  }
   return (
     <ul>
       {data.map((genre) => (
@@ -20,7 +23,18 @@ const GenreList = ({onSelectGenre}: Props) => {
             className="w-12 h-12 rounded-lg"
             src={getCroppedImageUrl(genre.image_background)}
           />
-          <button onClick={() => onSelectGenre(genre)} className="px-5 text-xl cursor-pointer"><a className="hover:underline">{genre.name}</a></button>
+          <button
+            onClick={() => onSelectGenre(genre)}
+            className={`px-5 text-xl cursor-pointer ${
+              genre.id === selectedGenre?.id ? "font-bold" : "font-normal"
+            }`}
+          >
+            <a
+              className="hover:underline"
+            >
+              {genre.name}
+            </a>
+          </button>
         </div>
       ))}
     </ul>

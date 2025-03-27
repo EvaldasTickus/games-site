@@ -14,7 +14,7 @@ function App() {
 
       <div className="flex flex-col lg:flex-row">
         <div className="hidden px-5 mt-4 lg:block lg:w-[250px]">
-          <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)}/>
+          <GenreList selectedGenre={selectedGenre} onSelectGenre={(genre) => setSelectedGenre(genre)}/>
         </div>
 
         <div className="w-full">
