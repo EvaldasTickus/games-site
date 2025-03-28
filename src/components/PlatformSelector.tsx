@@ -1,5 +1,4 @@
-import { Platform } from "../hooks/useGames";
-import usePlatforms from "../hooks/usePlatfroms";
+import usePlatforms, {Platform} from "../hooks/usePlatfroms";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
