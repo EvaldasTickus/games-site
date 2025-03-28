@@ -15,12 +15,12 @@ const PlatformSelector = ({ onSelectPlatform }: Props) => {
       className="px-4 py-2 dark:bg-zinc-900 border rounded-lg w-50"
       onChange={(e) => {
         const selectedId = Number(e.target.value);
-        const selectedPlatform = data.find((platform) => platform.id === selectedId);
+        const selectedPlatform = data?.results.find((platform) => platform.id === selectedId);
         if (selectedPlatform) onSelectPlatform(selectedPlatform);
       }}
     >
       <option value="" hidden>Platforms</option>
-      {data.map((platform) => (
+      {data?.results.map((platform) => (
         <option key={platform.id} value={platform.id}>
           {platform.name}
         </option>

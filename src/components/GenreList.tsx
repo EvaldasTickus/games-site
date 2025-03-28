@@ -19,7 +19,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     <>
       <h1 className="text-2xl mb-3">Genres</h1>
       <ul>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <div className="flex py-2" key={genre.id}>
             <img
               className="w-13 h-13 rounded-lg object-cover"
