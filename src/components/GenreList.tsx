@@ -1,18 +1,19 @@
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-urls";
+import Spinner from "./Spinner";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
   if (isLoading) {
     return (
-      <div className="w-10 h-10 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+      <Spinner />
     );
   }
   return (
@@ -28,7 +29,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
             <button
               onClick={() => onSelectGenre(genre)}
               className={`px-5 text-xl cursor-pointer text-left ${
-                genre.id === selectedGenre?.id ? "font-bold" : "font-normal"
+                genre.id === selectedGenreId ? "font-bold" : "font-normal"
               }`}
             >
               <a

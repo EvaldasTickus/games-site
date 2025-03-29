@@ -4,13 +4,13 @@ import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import { Platform } from "./hooks/usePlatfroms";
+import { Platform } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
   
@@ -29,13 +29,13 @@ function App() {
 
       <div className="flex flex-col lg:flex-row">
         <div className="hidden px-5 mt-4 lg:block lg:w-[250px]">
-          <GenreList selectedGenre={GameQuery.genre} onSelectGenre={(genre) => setGameQuery({...GameQuery, genre})}/>
+          <GenreList selectedGenreId={GameQuery.genreId} onSelectGenre={(genre) => setGameQuery({...GameQuery, genreId: genre.id})}/>
         </div>
 
         <div className="w-full">
           <GameHeading gameQuery={GameQuery} />
           <div className="flex flex-col gap-5 ml-3 mb-5 mt-5">
-            <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platform})}/>
+            <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...GameQuery, platformId: platform.id})}/>
             <SortSelector onSelectSortOrder={(sortOrder) => setGameQuery({...GameQuery, sortOrder})} />
           </div>
           <GameGrid gameQuery={GameQuery}/>

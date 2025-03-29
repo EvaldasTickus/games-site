@@ -9,7 +9,7 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { Platform } from "../hooks/usePlatfroms";
+import { Platform } from "../hooks/usePlatforms";
 import { IconType } from "react-icons";
 
 interface PlatformIconProps {
@@ -33,6 +33,7 @@ const PlatformIconList = ({ platforms }: PlatformIconProps) => {
     <div className="flex my-1.5">
       {platforms.map((platform) => {
         const Icon = iconMap[platform.slug];
+        if (!Icon) return null;
         return (
           <div key={platform.id}>
             <Icon className="text-xl text-gray-500 dark:text-gray-400" />
