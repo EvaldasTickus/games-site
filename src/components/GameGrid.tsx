@@ -1,17 +1,10 @@
 import React from "react";
-import { GameQuery } from "../App";
 import useGames from "../hooks/useGames";
 import CardContainer from "./CardContainer";
 import CardSkeleton from "./CardSkeleton";
 import GameCard from "./GameCard";
 
-interface Props {
-  gameQuery: GameQuery;
-  // selectedGenre: Genre | null;
-  // selectedPlatform: Platform | null;
-}
-
-const GameGrid = ({ gameQuery }: Props) => {
+const GameGrid = () => {
   const {
     data,
     error,
@@ -19,7 +12,7 @@ const GameGrid = ({ gameQuery }: Props) => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useGames(gameQuery);
+  } = useGames();
   const skeletons = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
@@ -45,7 +38,14 @@ const GameGrid = ({ gameQuery }: Props) => {
           </React.Fragment>
         ))}
       </div>
-      {hasNextPage && <button className="my-5 cursor-pointer ml-3 border-1 py-2 px-5 rounded-lg font-semibold" onClick={() => fetchNextPage()}>{isFetchingNextPage ? "Loading..." : "Load More"}</button>}
+      {hasNextPage && (
+        <button
+          className="my-5 cursor-pointer ml-3 border-1 py-2 px-5 rounded-lg font-semibold"
+          onClick={() => fetchNextPage()}
+        >
+          {isFetchingNextPage ? "Loading..." : "Load More"}
+        </button>
+      )}
     </>
   );
 };

@@ -1,14 +1,12 @@
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-urls";
+import useGameQueryStore from "../store";
 import Spinner from "./Spinner";
 
-interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
-
-const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
+const GenreList = () => {
   const { data, isLoading, error } = useGenres();
+  const selectedGenreId = useGameQueryStore(s => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore(s => s.setGenrId);
 
   if (error) return null;
   if (isLoading) {
@@ -27,7 +25,7 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
               src={getCroppedImageUrl(genre.image_background)}
             />
             <button
-              onClick={() => onSelectGenre(genre)}
+              onClick={() => setSelectedGenreId(genre.id)}
               className={`px-5 text-xl cursor-pointer text-left ${
                 genre.id === selectedGenreId ? "font-bold" : "font-normal"
               }`}

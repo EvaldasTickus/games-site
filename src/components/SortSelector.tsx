@@ -1,8 +1,6 @@
-interface Props {
-  onSelectSortOrder: (sortOrder: string) => void;
-}
+import useGameQueryStore from "../store";
 
-const SortSelector = ({ onSelectSortOrder }: Props) => {
+const SortSelector = () => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -12,11 +10,12 @@ const SortSelector = ({ onSelectSortOrder }: Props) => {
     { value: "=rating", label: "Average rating" },
   ];
 
+  const setSortOrder =  useGameQueryStore(s => s.setSortOrder)
 
   return (
     <select
       className="px-4 py-2 dark:bg-zinc-900 border rounded-lg w-55"
-      onChange={(e) => onSelectSortOrder(e.target.value)} // ✅ Use onChange here
+      onChange={(e) => setSortOrder(e.target.value)} // ✅ Use onChange here
     >
       <option value="" hidden>
         Order by : Relevance

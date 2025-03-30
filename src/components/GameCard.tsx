@@ -14,7 +14,7 @@ const GameCard = ({ game }: Props) => {
       <div className="dark:bg-zinc-800 bg-gray-300 p-5">
         <div className="flex justify-between">
           <PlatformIconList
-            platforms={game.parent_platforms.map((p) => p.platform)}
+            platforms={Array.isArray(game.parent_platforms) ? game.parent_platforms.map((p) => p.platform) : []}
             
           />
           <CriticScore score={game.metacritic} />

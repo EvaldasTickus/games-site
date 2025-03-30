@@ -1,11 +1,9 @@
-import usePlatforms, { Platform } from "../hooks/usePlatforms";
+import usePlatforms from "../hooks/usePlatforms";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-}
-
-const PlatformSelector = ({ onSelectPlatform }: Props) => {
+const PlatformSelector = () => {
   const { data, error } = usePlatforms();
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
 
   if (error) return null;
 
@@ -14,16 +12,11 @@ const PlatformSelector = ({ onSelectPlatform }: Props) => {
       className="px-4 py-2 dark:bg-zinc-900 border rounded-lg w-50"
       onChange={(e) => {
         const selectedId = Number(e.target.value);
-        const selectedPlatform = data?.results.find(
-          (platform) => platform.id === selectedId
-        );
-        if (selectedPlatform) onSelectPlatform(selectedPlatform);
+        setSelectedPlatformId(selectedId);
       }}
     >
-      <option value="" hidden>
-        Platforms
-      </option>
-      {data?.results.map((platform) => (
+      <option value="" hidden>Platforms</option>
+      {data?.results?.map((platform) => (
         <option key={platform.id} value={platform.id}>
           {platform.name}
         </option>
