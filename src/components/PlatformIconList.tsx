@@ -36,7 +36,7 @@ const PlatformIconList = ({ platforms }: PlatformIconProps) => {
         if (!Icon) return null;
         return (
           <div key={platform.id}>
-            <Icon className="text-xl text-gray-500 dark:text-gray-400" />
+            <Icon className="text-2xl text-gray-500 dark:text-gray-400" />
           </div>
         )
       })}

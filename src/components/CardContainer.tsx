@@ -6,7 +6,7 @@ interface Props {
 
 const CardContainer = ({children}: Props) => {
   return (
-    <div className="rounded-xl overflow-hidden">
+    <div className="rounded-xl overflow-hidden hover:scale-102 transition ease-in-out">
       {children}
     </div>
   )

@@ -6,13 +6,13 @@ import SortSelector from "../components/SortSelector"
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-zinc-900 dark:text-white">
+    <div className="min-h-screen">
       <div className="flex flex-col lg:flex-row">
         <div className="hidden px-5 mt-4 lg:block lg:w-[250px]">
           <GenreList  />
         </div>
 
-        <div className="w-full">
+        <div className="w-full pt-5">
           <GameHeading />
           <div className="flex flex-col gap-5 ml-3 mb-5 mt-5">
             <PlatformSelector />
