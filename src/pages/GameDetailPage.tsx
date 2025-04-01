@@ -14,7 +14,7 @@ const GameDetailPage = () => {
   if (error || !game) throw error;
 
   return (
-    <div className="grid md:grid-cols-2">
+    <div className="grid md:grid-cols-2 gap-5">
       <div>
         <h1 className="text-5xl mb-5">{game.name}</h1>
         <ExpandableText children={game.description_raw} />

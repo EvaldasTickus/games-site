@@ -8,7 +8,7 @@ const CriticScore = ({ score }: Props) => {
   return (
     <div
       color={color}
-      className={` bg-gray-700 flex font-semibold justify-center items-center px-4 rounded-md w-10 h-8 ${color}`}
+      className={`bg-gray-200 dark:bg-gray-700 flex font-semibold justify-center items-center px-4 rounded-md w-10 h-8 ${color}`}
     >
       {score}
     </div>
