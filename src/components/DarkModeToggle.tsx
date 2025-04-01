@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const DarkModeToggle = () => {
-  // ✅ Set initial state from localStorage or system preference
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem("theme");
@@ -9,7 +8,7 @@ const DarkModeToggle = () => {
         ? savedTheme === "dark"
         : window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
-    return false; // Default to light mode if window is undefined (e.g., SSR)
+    return false;
   });
 
   useEffect(() => {
@@ -32,7 +31,9 @@ const DarkModeToggle = () => {
       />
       <div className="w-12 h-6 bg-gray-300 dark:bg-gray-600 rounded-full peer-checked:bg-green-500 transition-colors" />
       <div className="absolute left-0 top-0.5 w-5 h-5 bg-white dark:bg-white rounded-full transition-transform peer-checked:translate-x-7" />
-      <div className="whitespace-nowrap ml-1.5">{darkMode ? "Dark mode" : "Light mode"}</div>
+      <div className="whitespace-nowrap ml-1.5">
+        {darkMode ? "Dark mode" : "Light mode"}
+      </div>
     </label>
   );
 };

@@ -15,7 +15,9 @@ const PlatformSelector = () => {
         setSelectedPlatformId(selectedId);
       }}
     >
-      <option value="" hidden>Platforms</option>
+      <option value="" hidden>
+        Platforms
+      </option>
       {data?.results?.map((platform) => (
         <option key={platform.id} value={platform.id}>
           {platform.name}

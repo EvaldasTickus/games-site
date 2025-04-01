@@ -10,12 +10,12 @@ const SortSelector = () => {
     { value: "=rating", label: "Average rating" },
   ];
 
-  const setSortOrder =  useGameQueryStore(s => s.setSortOrder)
+  const setSortOrder = useGameQueryStore((s) => s.setSortOrder);
 
   return (
     <select
       className="px-4 py-2 dark:bg-zinc-900 border rounded-lg w-55"
-      onChange={(e) => setSortOrder(e.target.value)} // ✅ Use onChange here
+      onChange={(e) => setSortOrder(e.target.value)}
     >
       <option value="" hidden>
         Order by : Relevance

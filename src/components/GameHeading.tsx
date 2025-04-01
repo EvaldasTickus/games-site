@@ -3,17 +3,13 @@ import usePlatforms from "../hooks/usePlatforms";
 import useGameQueryStore from "../store";
 
 const GameHeading = () => {
-  const genreId = useGameQueryStore(s => s.gameQuery.genreId)
+  const genreId = useGameQueryStore((s) => s.gameQuery.genreId);
   const { data: genres } = useGenres();
-  const genre = genres?.results.find((g) => g.id === genreId);  
+  const genre = genres?.results.find((g) => g.id === genreId);
 
-  const platformId = useGameQueryStore(s => s.gameQuery.platformId)
+  const platformId = useGameQueryStore((s) => s.gameQuery.platformId);
   const { data: platforms } = usePlatforms();
-  const platform = platforms?.results.find(
-    (p) => p.id === platformId
-  );
-
-
+  const platform = platforms?.results.find((p) => p.id === platformId);
 
   const heading = `${platform?.name || ""} ${genre?.name || ""} Games`;
 

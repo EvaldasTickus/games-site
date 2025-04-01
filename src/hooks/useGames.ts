@@ -7,7 +7,7 @@ import { Game } from "../entities/Game";
 const apiClient = new APIClient<Game>("/games");
 
 const useGames = () => {
-  const gameQuery = useGameQueryStore(s => s.gameQuery)
+  const gameQuery = useGameQueryStore((s) => s.gameQuery);
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
     initialPageParam: 1,

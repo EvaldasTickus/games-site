@@ -5,14 +5,12 @@ import Spinner from "./Spinner";
 
 const GenreList = () => {
   const { data, isLoading, error } = useGenres();
-  const selectedGenreId = useGameQueryStore(s => s.gameQuery.genreId);
-  const setSelectedGenreId = useGameQueryStore(s => s.setGenrId);
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenrId);
 
   if (error) return null;
   if (isLoading) {
-    return (
-      <Spinner />
-    );
+    return <Spinner />;
   }
   return (
     <>
@@ -30,11 +28,7 @@ const GenreList = () => {
                 genre.id === selectedGenreId ? "font-bold" : "font-normal"
               }`}
             >
-              <a
-                className="hover:underline"
-              >
-                {genre.name}
-              </a>
+              <a className="hover:underline">{genre.name}</a>
             </button>
           </div>
         ))}

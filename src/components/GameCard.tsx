@@ -18,15 +18,17 @@ const GameCard = ({ game }: Props) => {
       <div className="dark:bg-zinc-800 bg-gray-300 p-5 flex flex-col flex-grow">
         <div className="flex justify-between mt-2">
           <PlatformIconList
-            platforms={Array.isArray(game.parent_platforms) ? game.parent_platforms.map((p) => p.platform) : []}
+            platforms={
+              Array.isArray(game.parent_platforms)
+                ? game.parent_platforms.map((p) => p.platform)
+                : []
+            }
           />
           <CriticScore score={game.metacritic} />
         </div>
         <div className="text-2xl mt-auto text-center">
-          <Link to={"/games/" + game.slug}>
-            {game.name}
-          </Link>
-          </div>
+          <Link to={"/games/" + game.slug}>{game.name}</Link>
+        </div>
       </div>
     </div>
   );

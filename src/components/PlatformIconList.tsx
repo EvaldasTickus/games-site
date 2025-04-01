@@ -18,7 +18,7 @@ interface PlatformIconProps {
 
 const PlatformIconList = ({ platforms }: PlatformIconProps) => {
   const iconMap: { [key: string]: IconType } = {
-    pc:FaWindows,
+    pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
     nintendo: SiNintendo,
@@ -26,8 +26,8 @@ const PlatformIconList = ({ platforms }: PlatformIconProps) => {
     android: FaAndroid,
     linux: FaLinux,
     ios: MdPhoneIphone,
-    web: BsGlobe
-  }
+    web: BsGlobe,
+  };
 
   return (
     <div className="flex my-1.5">
@@ -38,7 +38,7 @@ const PlatformIconList = ({ platforms }: PlatformIconProps) => {
           <div key={platform.id}>
             <Icon className="text-2xl text-gray-500 dark:text-gray-400" />
           </div>
-        )
+        );
       })}
     </div>
   );
