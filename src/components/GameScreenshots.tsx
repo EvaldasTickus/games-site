@@ -13,7 +13,7 @@ const GameScreenshots = ({ gameId }: Props) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
       {data.results.map((file) => (
-        <img className="rounded-3xl w-full h-64 object-cover" key={file.id} src={file.image} />
+        <img className="rounded-4xl w-full h-64 object-cover" key={file.id} src={file.image} />
       ))}
     </div>
   );
